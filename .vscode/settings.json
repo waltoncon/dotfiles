@@ -1,0 +1,9 @@
+{
+    "conventionalCommits.scopes": [
+        "install",
+        "dot",
+        "git",
+        "npm",
+        "zsh"
+    ]
+}

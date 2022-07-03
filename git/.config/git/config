@@ -1,0 +1,30 @@
+[alias]
+    alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\t/ | sed -e /^alias/d | sort
+    aa = add .
+    br = branch
+    cane = commit --amend --no-edit
+    ci = commit
+    co = checkout
+    di = diff
+    dslast = log -1 HEAD
+    lo = log --oneline -n 10
+    nah = reset --hard
+    pr = pull --rebase
+    r = remote -v
+    s = status
+    st = status
+    u = reset HEAD
+[user]
+    name = Conor Walton
+    email = waltoncon@users.noreply.github.com
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[core]
+    autocrlf = input
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE

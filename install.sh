@@ -30,9 +30,9 @@ nix-env -iA \
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 # stow dotfiles
+stow dot
 stow git
-stow nvim
-stow tmux
+stow npm
 stow zsh
 
 # add zsh as a login shell

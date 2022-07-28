@@ -1,5 +1,5 @@
 # Standard RC
-[ -e ~/.config/dot/rc.sh ] && source ~/.config/dot/rc.sh
+[ -e ~/.config/shell/init ] && source ~/.config/shell/init
 
 # Setup Nix
 [ -e ~/.nix-profile/etc/profile.d/nix.sh ] && source ~/.nix-profile/etc/profile.d/nix.sh;

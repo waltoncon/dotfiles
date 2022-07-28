@@ -1,0 +1,4 @@
+[global]
+username = cwalton
+store-passwords = on
+store-auth-creds = on

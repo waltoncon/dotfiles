@@ -4,6 +4,7 @@
         "shell",
         "git",
         "npm",
-        "zsh"
+        "zsh",
+        "subversion"
     ]
 }

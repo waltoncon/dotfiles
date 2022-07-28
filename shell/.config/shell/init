@@ -1,3 +1,4 @@
-source "./alias"
-source "./env"
-source "./func"
+DIR=$(dirname "$0")
+source "${DIR}/alias"
+source "${DIR}/env"
+source "${DIR}/func"

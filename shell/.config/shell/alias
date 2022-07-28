@@ -1,0 +1,14 @@
+alias cat='bat'         # Use bat instead of cat
+alias v="wslview"       # Shortcut for wslview
+alias so="ssc open"     # Open project files with SSC
+alias cp="cp -i"        # -i (interactive)      prompt before overwrite
+alias df='df -h'        # -h (human-readable)   print sizes in powers of 1024 (e.g., 1023M)
+alias ls='ls -lAhF'     # -A (almost-all)       do not list implied . and ..
+                        # -F (classify)         append indicator (one of */=>@|) to entries
+                        # -h (human-readable)   print sizes like 1K 234M 2G etc.
+                        # -l                    use a long listing format
+alias lt='ls -t'        # -t                    sort by modification time, newest first
+alias lz='ls -S'        # -S                    sort by file size, largest first
+alias svn="svn --config-dir \"${XDG_CONFIG_HOME}/subversion\""
+alias yarn="yarn --use-yarnrc \"${XDG_CONFIG_HOME}/yarn/config\""
+alias wget="wget --hsts-file=\"${XDG_CACHE_HOME}/wget-hsts\""

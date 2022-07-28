@@ -1,0 +1,3 @@
+source "./alias"
+source "./env"
+source "./func"

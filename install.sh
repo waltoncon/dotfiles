@@ -26,15 +26,18 @@ nix-env -iA \
     nixpkgs.yarn \
     nixpkgs.zsh
 
-# Install NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-
 # stow dotfiles
 stow git
 stow npm
 stow shell
 stow subversion
 stow zsh
+
+# Source the shell files while installing
+source "~/.config/shell/init"
+
+# Install NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 # add zsh as a login shell
 command -v zsh | sudo tee -a /etc/shells

@@ -61,3 +61,5 @@ sudo chsh -s $(which zsh) $USER
 
 # Disable MOTD
 [ -e "/etc/default/motd-news" ] && sudo sed -i 's/ENABLED=1/ENABLED=0/' /etc/default/motd-news
+
+source ~/.zshrc

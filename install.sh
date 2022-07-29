@@ -44,3 +44,5 @@ command -v zsh | sudo tee -a /etc/shells
 
 # use zsh as default shell
 sudo chsh -s $(which zsh) $USER
+
+[ -e "/etc/bash.bashrc" ] && sudo sed -i '/sudo hint/,/^fi/d' /etc/bash.bashrc

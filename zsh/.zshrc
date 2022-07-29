@@ -6,6 +6,7 @@
 
 # Setup NVM
 [ -e "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
 # Lines configured by zsh-newuser-install
 HISTFILE="$XDG_STATE_HOME/zsh/history"

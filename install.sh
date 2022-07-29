@@ -45,4 +45,8 @@ command -v zsh | sudo tee -a /etc/shells
 # use zsh as default shell
 sudo chsh -s $(which zsh) $USER
 
+# Disable sudo message
 [ -e "/etc/bash.bashrc" ] && sudo sed -i '/sudo hint/,/^fi/d' /etc/bash.bashrc
+
+# Disable MOTD
+[ -e "/etc/default/motd-news" ] && sudo sed -i 's/ENABLED=1/ENABLED=0/' /etc/default/motd-news

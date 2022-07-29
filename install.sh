@@ -26,6 +26,9 @@ nix-env -iA \
     nixpkgs.yarn \
     nixpkgs.zsh
 
+# Remove profile to use stowed version
+rm ~/.profile
+
 # stow dotfiles
 stow git
 stow npm

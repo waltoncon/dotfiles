@@ -13,4 +13,3 @@ alias l="ls"
 alias j='jobs -l'       # List jobs and their IDs
 alias svn="svn --config-dir \"${XDG_CONFIG_HOME}/subversion\""
 alias yarn="yarn --use-yarnrc \"${XDG_CONFIG_HOME}/yarn/config\""
-alias wget="wget --hsts-file=\"${XDG_CACHE_HOME}/wget-hsts\""

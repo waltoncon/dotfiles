@@ -44,8 +44,9 @@ source $DIR/shell/.config/shell/func
 
 # Create required files and folders
 mkdir -p "${NVM_DIR}"
-mkdir -p "${WGETRC}"
+mkdir -p $(dirname $WGETRC)
 mkdir -p "${ZSH_STATE}"
+touch "${WGETRC}"
 
 # Install NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash

@@ -23,6 +23,9 @@ autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 # End of lines added by compinstall
 
+# Makes autocompletion work on aliases
+setopt complete_aliases
+
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;3D" backward-word

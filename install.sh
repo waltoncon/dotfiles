@@ -37,7 +37,10 @@ stow subversion
 stow zsh
 
 # Source the shell files while installing
-source ~/.config/shell/init
+DIR=$(dirname "$0")
+source $DIR/shell/.config/shell/alias
+source $DIR/shell/.config/shell/env
+source $DIR/shell/.config/shell/func
 
 # Create required files and folders
 mkdir -p "${NVM_DIR}"

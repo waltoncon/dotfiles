@@ -37,7 +37,7 @@ stow subversion
 stow zsh
 
 # Source the shell files while installing
-source "~/.config/shell/init"
+source ~/.config/shell/init
 
 # Install NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash

@@ -12,6 +12,7 @@ nix-env -iA \
     nixpkgs.deno \
     nixpkgs.fzf \
     nixpkgs.git \
+    nixpkgs.gnome.gnome-keyring \
     nixpkgs.imagemagick \
     nixpkgs.jq \
     nixpkgs.mediainfo \

@@ -22,5 +22,14 @@ autoload -Uz compinit
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 # End of lines added by compinstall
 
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;3D" backward-word
+bindkey "^[[1;5D" backward-word
+bindkey "\e[3~" delete-char
+bindkey "^[[3;5~" kill-word
+bindkey "^H" backward-kill-word
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
 
 eval "$(starship init zsh)"

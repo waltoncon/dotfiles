@@ -5,7 +5,8 @@
         "git",
         "npm",
         "zsh",
-        "subversion"
+        "subversion",
+        "wget"
     ],
     "files.associations": {
         "**/npm/.config/npm/npmrc": "ini",

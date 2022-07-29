@@ -9,7 +9,7 @@
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
 # Lines configured by zsh-newuser-install
-HISTFILE="$XDG_STATE_HOME/zsh/history"
+HISTFILE="${ZSH_STATE}/history"
 HISTSIZE=1000
 SAVEHIST=1000
 setopt nomatch

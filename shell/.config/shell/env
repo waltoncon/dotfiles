@@ -30,3 +30,5 @@ export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship.toml"
 export STARSHIP_CACHE="${XDG_CACHE_HOME}/starship"
 # wget
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+# Zsh
+export ZSH_STATE="$XDG_STATE_HOME/zsh"

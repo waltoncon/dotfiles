@@ -39,6 +39,11 @@ stow zsh
 # Source the shell files while installing
 source ~/.config/shell/init
 
+# Create required files and folders
+mkdir -p "${NVM_DIR}"
+mkdir -p "${WGETRC}"
+mkdir -p "${ZSH_STATE}"
+
 # Install NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 

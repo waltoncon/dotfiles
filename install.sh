@@ -71,4 +71,4 @@ if [[ "$(< /proc/sys/kernel/osrelease)" == *"microsoft"* ]]; then
     echo "G: /mnt/g drvfs defaults 0 0" | sudo tee -a /etc/fstab
 fi
 
-echo "\n\n\nRelaunch your session to continue\n\n\n"
+printf "\n\n\nRelaunch your session to continue\n\n\n"

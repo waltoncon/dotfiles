@@ -36,4 +36,7 @@ bindkey "^H" backward-kill-word
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
+autoload -U select-word-style
+select-word-style bash
+
 eval "$(starship init zsh)"

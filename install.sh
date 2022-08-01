@@ -64,4 +64,11 @@ sudo chsh -s $(which zsh) $USER
 # Disable MOTD
 [ -e "/etc/default/motd-news" ] && sudo sed -i 's/ENABLED=1/ENABLED=0/' /etc/default/motd-news
 
+# Setup WSL drive mounting
+if [[ "$(< /proc/sys/kernel/osrelease)" == *"microsoft"* ]]; then 
+    printf "[automount]\nenabled=false" | sudo tee -a /etc/wsl.conf
+    echo "C: /mnt/c drvfs defaults 0 0" | sudo tee -a /etc/fstab
+    echo "G: /mnt/g drvfs defaults 0 0" | sudo tee -a /etc/fstab
+fi
+
 echo "\n\n\nRelaunch your session to continue\n\n\n"

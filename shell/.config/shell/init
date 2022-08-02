@@ -1,6 +1,5 @@
 DIR=$(dirname "$0")
 source "${DIR}/env"
-source "${DIR}/path"
 source "${DIR}/alias"
 source "${DIR}/func"
 source "${DIR}/lang"

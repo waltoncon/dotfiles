@@ -1,2 +1,0 @@
-# Add user private binaries to path
-[ -d "$XDG_DATA_HOME/npm/bin" ] && PATH="$XDG_DATA_HOME/npm/bin:$PATH"

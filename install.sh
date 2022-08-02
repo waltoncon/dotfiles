@@ -33,6 +33,7 @@ rm ~/.profile
 # stow dotfiles
 stow git
 stow npm
+stow nvm
 stow shell
 stow subversion
 stow zsh

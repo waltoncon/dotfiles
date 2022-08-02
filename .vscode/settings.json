@@ -4,6 +4,7 @@
         "shell",
         "git",
         "npm",
+        "nvm",
         "zsh",
         "subversion",
         "wget"

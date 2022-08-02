@@ -14,6 +14,7 @@
         "**/shell/.config/shell/env": "shellscript",
         "**/shell/.config/shell/func": "shellscript",
         "**/shell/.config/shell/init": "shellscript",
+        "**/shell/.config/shell/lang": "shellscript",
         "**/shell/.config/shell/path": "shellscript",
         "**/subversion/.config/subversion/servers": "ini",
     }

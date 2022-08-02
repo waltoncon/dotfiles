@@ -7,7 +7,8 @@
         "nvm",
         "zsh",
         "subversion",
-        "wget"
+        "wget",
+        "starship"
     ],
     "files.associations": {
         "**/npm/.config/npm/npmrc": "ini",

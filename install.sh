@@ -10,6 +10,7 @@ source ~/.nix-profile/etc/profile.d/nix.sh;
 nix-env -iA \
     nixpkgs.bat \
     nixpkgs.deno \
+    nixpkgs.ffmpeg \
     nixpkgs.fzf \
     nixpkgs.git \
     nixpkgs.gnome.gnome-keyring \

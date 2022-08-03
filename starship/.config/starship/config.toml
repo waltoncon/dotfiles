@@ -13,13 +13,15 @@ add_newline = false
 format = "$path  "
 truncation_length = 3
 truncation_symbol = "…/"
+truncate_to_repo = false
 
 [directory.substitutions]
-"Documents" = " "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-"saffron" = "S"
+"~/Documents" = " "
+"~/Downloads" = " "
+"~/Music" = " "
+"~/Pictures" = " "
+"~/saffron" = " "
+"~/code" = " "
 
 [docker_context]
 symbol = " "

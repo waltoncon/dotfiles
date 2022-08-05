@@ -36,11 +36,13 @@ rm ~/.profile
 
 # stow dotfiles
 stow fd
+stow fnm
 stow git
 stow npm
-stow nvm
 stow shell
+stow starship
 stow subversion
+stow wget
 stow zsh
 
 # Source the shell files while installing

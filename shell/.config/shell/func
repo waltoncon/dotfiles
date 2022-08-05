@@ -7,3 +7,10 @@ function e() {
 function h() {
     http-server -o -c5 --no-dotfiles --brotli --utc --log-ip $1
 }
+
+function check_and_source() {
+    local FILE_PATH=$1
+    if [ -e "$FILE_PATH" ]; then
+        source "$FILE_PATH";
+    fi
+}

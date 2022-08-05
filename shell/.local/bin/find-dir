@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+# Get an absolute path to directory
+# Usage: finddir <base-directory>
+# Args:
+#    base-directory    The dir to start searching from. Avoid using $HOME as it contains a lot of files you likely don't want
+
+# The user chosen base directory
+BASE_DIR="$1"
+
+# Using fd and fzf to get the users selected file
+FILEPATH=$(fd --color always --base-directory "$BASE_DIR" --type d | sd '\./' '' | sk --ansi)
+
+# Check the exit code from fzf is zero
+[ $? -ne 0 ] && exit
+
+# The path returned from fzf is relative to the $BASE_DIR, this will get the absolute path
+FULLPATH=$(realpath "$BASE_DIR/${FILEPATH}")
+
+echo "${FULLPATH}"

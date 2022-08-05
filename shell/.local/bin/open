@@ -1,0 +1,53 @@
+#!/usr/bin/bash
+
+# Open a file
+# Usage: open <filepath> [base-dir]
+# Args:
+#    base-directory    The dir to start searching from. Avoid using $HOME as it contains a lot of files you likely don't want
+
+FILEPATH=$1
+BASEDIR=$2
+
+if [[ -n "$BASEDIR" ]]; then
+    FILEPATH=$(realpath "$BASEDIR/${FILEPATH}")
+fi
+
+if [[ -e "$FILEPATH" ]]; then
+    BLUE='\033[0;34m'
+    NC='\033[0m' # No Color
+    echo -e "${BLUE}Opening ${FILEPATH}${NC}"
+else
+    echo -e "${BLUE}Cannot find ${FILEPATH}${NC}"
+    exit 1
+fi
+
+case "$FILEPATH" in
+    *.cjs)             code "$FILEPATH";;
+    *.code-workspace)  code "$FILEPATH";;
+    *.css)             code "$FILEPATH";;
+    *.csv)             code "$FILEPATH";;
+    *.hbs)             code "$FILEPATH";;
+    *.html)            code "$FILEPATH";;
+    *.js)              code "$FILEPATH";;
+    *.jsdoc)           code "$FILEPATH";;
+    *.json)            code "$FILEPATH";;
+    *.json5)           code "$FILEPATH";;
+    *.jsonc)           code "$FILEPATH";;
+    *.jsx)             code "$FILEPATH";;
+    *.markdown)        code "$FILEPATH";;
+    *.md)              code "$FILEPATH";;
+    *.mjs)             code "$FILEPATH";;
+    *.sass)            code "$FILEPATH";;
+    *.scss)            code "$FILEPATH";;
+    *.sh)              code "$FILEPATH";;
+    *.svg)             code "$FILEPATH";;
+    *.ts)              code "$FILEPATH";;
+    *.tsx)             code "$FILEPATH";;
+    *.txt)             code "$FILEPATH";;
+    *.vue)             code "$FILEPATH";;
+    *.xml)             code "$FILEPATH";;
+    *.yaml)            code "$FILEPATH";;
+    *.yml)             code "$FILEPATH";;
+    # explorer.exe will open the file based on Windows' default programs
+    *)                 explorer.exe "$(wslpath -w $FILEPATH)";;
+esac

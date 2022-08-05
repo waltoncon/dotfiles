@@ -20,6 +20,7 @@ nix-env -iA \
     nixpkgs.mediainfo \
     nixpkgs.pandoc \
     nixpkgs.ripgrep \
+    nixpkgs.sd \
     nixpkgs.sqlite \
     nixpkgs.starship \
     nixpkgs.stow \

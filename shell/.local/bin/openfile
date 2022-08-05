@@ -1,0 +1,56 @@
+#!/usr/bin/bash
+
+# Open a file
+# Usage: open-file <base-directory>
+# Args:
+#    base-directory    The dir to start searching from. Avoid using $HOME as it contains a lot of files you likely don't want
+
+# The user chosen base directory
+BASE_DIR="$1"
+
+# Using fd and fzf to get the users selected file
+FILEPATH=$(fd --color always --base-directory "$BASE_DIR" --exclude "**/node_modules/**" | fzf --ansi)
+
+# If user Ctrl-C then $FILEPATH will be empty. Exit instead of attempting to open
+[ -z "$FILEPATH" ] && exit
+
+# The path returned from fzf is relative to the $BASE_DIR, this will get the absolute path
+FULLPATH=$(realpath "$BASE_DIR/${FILEPATH}")
+
+# Print an update
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+echo -e "${BLUE}Opening ${FULLPATH}${NC}"
+
+# Choose the program based on the file extension
+case "$FULLPATH" in
+    *.cjs)             code "$FULLPATH";;
+    *.code-workspace)  code "$FULLPATH";;
+    *.css)             code "$FULLPATH";;
+    *.csv)             code "$FULLPATH";;
+    *.hbs)             code "$FULLPATH";;
+    *.html)            code "$FULLPATH";;
+    *.js)              code "$FULLPATH";;
+    *.jsdoc)           code "$FULLPATH";;
+    *.json)            code "$FULLPATH";;
+    *.json5)           code "$FULLPATH";;
+    *.jsonc)           code "$FULLPATH";;
+    *.jsx)             code "$FULLPATH";;
+    *.markdown)        code "$FULLPATH";;
+    *.md)              code "$FULLPATH";;
+    *.mjs)             code "$FULLPATH";;
+    *.sass)            code "$FULLPATH";;
+    *.scss)            code "$FULLPATH";;
+    *.sh)              code "$FULLPATH";;
+    *.svg)             code "$FULLPATH";;
+    *.ts)              code "$FULLPATH";;
+    *.tsx)             code "$FULLPATH";;
+    *.txt)             code "$FULLPATH";;
+    *.vue)             code "$FULLPATH";;
+    *.xml)             code "$FULLPATH";;
+    *.yaml)            code "$FULLPATH";;
+    *.yml)             code "$FULLPATH";;
+    # explorer.exe will open the file based on Windows' default programs
+    *)                 explorer.exe "$(wslpath -w $FULLPATH)";;
+esac
+

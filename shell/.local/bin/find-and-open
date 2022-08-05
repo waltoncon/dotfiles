@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # Open a file
-# Usage: openfile <base-directory>
+# Usage: find-and-open <base-directory>
 # Args:
 #    base-directory    The dir to start searching from. Avoid using $HOME as it contains a lot of files you likely don't want
 

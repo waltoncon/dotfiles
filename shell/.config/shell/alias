@@ -14,5 +14,5 @@ alias j='jobs -l'       # List jobs and their IDs
 alias grep="grep --color"
 alias svn="svn --config-dir \"${XDG_CONFIG_HOME}/subversion\""
 alias yarn="yarn --use-yarnrc \"${XDG_CONFIG_HOME}/yarn/config\""
-alias s="openfile $HOME/saffron"           # Open a Saffron file in vscode or explorer.exe
+alias s="find-and-open $HOME/saffron"       # Open a Saffron file in vscode or explorer.exe
 alias c='cd "$(find-dir $HOME/saffron)"'    # Change directories to the selected folder

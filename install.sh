@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 # Install Nix
-sh <(curl -L https://nixos.org/nix/install) --no-daemon --no-modify-profile
+if ! which nix-env > /dev/null; then
+    sh <(curl -L https://nixos.org/nix/install) --no-daemon --no-modify-profile
 
-# Source Nix temporarily
-source ~/.nix-profile/etc/profile.d/nix.sh;
+    # Source Nix temporarily
+    source ~/.nix-profile/etc/profile.d/nix.sh;
+fi
 
 # Install packages with Nix
 nix-env -iA \
@@ -32,7 +34,7 @@ nix-env -iA \
     nixpkgs.zsh
 
 # Remove profile to use stowed version
-rm ~/.profile
+[ ! -L ~/.profile ] && rm ~/.profile
 
 # stow dotfiles
 stow fd
@@ -52,25 +54,34 @@ source $DIR/shell/.config/shell/env
 source $DIR/shell/.config/shell/func
 
 # Create required files and folders
-mkdir -p "${FNM_DIR}"
-mkdir -p $(dirname $WGETRC)
-mkdir -p "${ZSH_STATE}"
-touch "${WGETRC}"
+[ ! -e "${FNM_DIR}" ] && mkdir -p "${FNM_DIR}"
+[ ! -e "$(dirname $WGETRC)" ] && mkdir -p "$(dirname $WGETRC)"
+[ ! -e "${ZSH_STATE}" ] && mkdir -p "${ZSH_STATE}"
+[ ! -e "${WGETRC}" ] && touch "${WGETRC}"
 
 # Install FNM
-curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "${XDG_DATA_HOME}/fnm" --skip-shell
+if [[ ! -e ${XDG_DATA_HOME}/fnm/fnm ]]; then
+    curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "${XDG_DATA_HOME}/fnm" --skip-shell
+fi
+
+FNMCMD=${XDG_DATA_HOME}/fnm/fnm
 
 # Install current Node LTS
-${XDG_DATA_HOME}/fnm/fnm install --lts
+$FNMCMD install --lts
 
 # Install latest Node version
-${XDG_DATA_HOME}/fnm/fnm ls-remote | sort -V | tail -n 1 | xargs ${XDG_DATA_HOME}/fnm/fnm install
+$FNMCMD ls-remote | sort -V | tail -n 1 | xargs $FNMCMD install
 
 # add zsh as a login shell
-command -v zsh | sudo tee -a /etc/shells
+if ! grep -q "$(command -v zsh)" /etc/shells; then
+    command -v zsh | sudo tee -a /etc/shells
+fi
 
 # use zsh as default shell
-sudo chsh -s $(which zsh) $USER
+CURRENT_SHELL=$(cat /etc/passwd | grep $USER | awk -F: '{print $NF}')
+if [[ "$CURRENT_SHELL" != "$(command -v zsh)" ]]; then
+    sudo chsh -s $(which zsh) $USER
+fi
 
 # Disable sudo message
 [ -e "/etc/bash.bashrc" ] && sudo sed -i '/sudo hint/,/^fi/d' /etc/bash.bashrc
@@ -80,9 +91,17 @@ sudo chsh -s $(which zsh) $USER
 
 # Setup WSL drive mounting
 if [[ "$(< /proc/sys/kernel/osrelease)" == *"microsoft"* ]]; then 
-    printf "[automount]\nenabled=false" | sudo tee -a /etc/wsl.conf
-    echo "C: /mnt/c drvfs defaults 0 0" | sudo tee -a /etc/fstab
-    echo "G: /mnt/g drvfs defaults 0 0" | sudo tee -a /etc/fstab
+    if ! grep -Pzoq "\[automount]\nenabled=false" /etc/wsl.conf; then
+        printf "[automount]\nenabled=false" | sudo tee -a /etc/wsl.conf
+    fi
+
+    if ! grep -q "C: /mnt/c drvfs defaults 0 0" /etc/fstab; then
+        echo "C: /mnt/c drvfs defaults 0 0" | sudo tee -a /etc/fstab
+    fi
+
+    if ! grep -q "G: /mnt/g drvfs defaults 0 0" /etc/fstab; then
+        echo "G: /mnt/g drvfs defaults 0 0" | sudo tee -a /etc/fstab
+    fi
 fi
 
 printf "\n\n\nRelaunch your session to continue\n\n\n"

@@ -1,2 +1,5 @@
 # Add user private binaries to path
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+
+# Add FNM directory to path
+export PATH="$FNM_DIR:$PATH"

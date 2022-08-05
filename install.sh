@@ -47,13 +47,19 @@ source $DIR/shell/.config/shell/env
 source $DIR/shell/.config/shell/func
 
 # Create required files and folders
-mkdir -p "${NVM_DIR}"
+mkdir -p "${FNM_DIR}"
 mkdir -p $(dirname $WGETRC)
 mkdir -p "${ZSH_STATE}"
 touch "${WGETRC}"
 
-# Install NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+# Install FNM
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "${XDG_DATA_HOME}/fnm" --skip-shell
+
+# Install current Node LTS
+${XDG_DATA_HOME}/fnm/fnm install --lts
+
+# Install latest Node version
+${XDG_DATA_HOME}/fnm/fnm ls-remote | sort -V | tail -n 1 | xargs ${XDG_DATA_HOME}/fnm/fnm install
 
 # add zsh as a login shell
 command -v zsh | sudo tee -a /etc/shells

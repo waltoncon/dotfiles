@@ -4,9 +4,8 @@
 # Setup Nix
 [ -e ~/.nix-profile/etc/profile.d/nix.sh ] && source ~/.nix-profile/etc/profile.d/nix.sh;
 
-# Setup NVM
-[ -e "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+# Setup FNM
+eval "$(fnm env --use-on-cd)"
 
 # Lines configured by zsh-newuser-install
 HISTFILE="${ZSH_STATE}/history"

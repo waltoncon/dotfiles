@@ -14,3 +14,12 @@ function check_and_source() {
         source "$FILE_PATH";
     fi
 }
+
+function fnm_upgrade_node() {
+    fnm install latest && fnm_install_globals
+}
+
+function fnm_install_globals() {
+    echo "Installing for Node $(node -v)"
+    xargs -a "${XDG_CONFIG_HOME}/fnm/default-packages" npm install -g
+}

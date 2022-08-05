@@ -33,6 +33,7 @@ nix-env -iA \
 rm ~/.profile
 
 # stow dotfiles
+stow fd
 stow git
 stow npm
 stow nvm

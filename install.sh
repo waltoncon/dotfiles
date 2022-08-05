@@ -21,6 +21,7 @@ nix-env -iA \
     nixpkgs.pandoc \
     nixpkgs.ripgrep \
     nixpkgs.sd \
+    nixpkgs.skim \
     nixpkgs.sqlite \
     nixpkgs.starship \
     nixpkgs.stow \

@@ -17,11 +17,19 @@ truncate_to_repo = false
 
 [directory.substitutions]
 "~/Documents/" = " "
+"~/Documents" = ""
 "~/Downloads/" = " "
+"~/Downloads" = ""
 "~/Music/" = " "
+"~/Music" = ""
 "~/Pictures/" = " "
+"~/Pictures" = ""
 "~/saffron/" = " "
+"~/saffron" = ""
 "~/code/" = " "
+"~/code" = ""
+"~/.config/" = " "
+"~/.config" = ""
 
 [docker_context]
 symbol = " "

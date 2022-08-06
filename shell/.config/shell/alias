@@ -1,19 +1,55 @@
-alias cat='bat'         # Use bat instead of cat
-alias v="wslview"       # Shortcut for wslview
-alias so="ssc open"     # Open project files with SSC
-alias cp="cp -i"        # -i (interactive)      prompt before overwrite
-alias df='df -h'        # -h (human-readable)   print sizes in powers of 1024 (e.g., 1023M)
-alias ls='ls -lAhF'     # -A (almost-all)       do not list implied . and ..
-                        # -F (classify)         append indicator (one of */=>@|) to entries
-                        # -h (human-readable)   print sizes like 1K 234M 2G etc.
-                        # -l                    use a long listing format
-alias lt='ls -t'        # -t                    sort by modification time, newest first
-alias lz='ls -S'        # -S                    sort by file size, largest first
+# Use bat instead of cat
+alias cat='bat'
+
+# Shortcut for wslview
+alias v="wslview"
+
+# Open project files with SSC
+alias so="ssc open"
+
+# Prevent accidental overwriting when copying
+# -i (interactive)      prompt before overwrite
+alias cp="cp -i"
+
+# Always show df with human readable sizes
+# -h (human-readable)   print sizes in powers of 1024 (e.g., 1023M)
+alias df='df -h'
+
+# Add some commonly used options to ls
+# -A (almost-all)       do not list implied . and ..
+# -F (classify)         append indicator (one of */=>@|) to entries
+# -h (human-readable)   print sizes like 1K 234M 2G etc.
+# -l                    use a long listing format
+alias ls='ls -lAhF'
+
+# ls sorted by time
+# -t                    sort by modification time, newest first
+alias lt='ls -t'
+
+# ls sorted by file size
+# -S                    sort by file size, largest first
+alias lz='ls -S'
+
+# shorter ls
 alias l="ls"
-alias j='jobs -l'       # List jobs and their IDs
+
+# List jobs and their IDs
+alias j='jobs -l'
+
+# Always display colour on grep output
 alias grep="grep --color"
+
+# Change the config directory for SVN
 alias svn="svn --config-dir \"${XDG_CONFIG_HOME}/subversion\""
+
+# Change the RC file location for Yarn
 alias yarn="yarn --use-yarnrc \"${XDG_CONFIG_HOME}/yarn/config\""
-alias f="find-and-open"       # Open a Saffron file in vscode or explorer.exe
-alias c='cd "$(find-dir)"'    # Change directories to the selected folder
+
+# Open a ~/code or ~/saffron file in vscode or explorer.exe
+alias f="find-and-open"
+
+# Change directories to the selected ~/code or ~/saffron folder
+alias c='cd "$(find-dir)"'
+
+# Change the hsts file location used by wget
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'

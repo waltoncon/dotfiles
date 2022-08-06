@@ -5,13 +5,6 @@
 # Args:
 #    base-directory    The dir to start searching from. Avoid using $HOME as it contains a lot of files you likely don't want
 
-# The user chosen base directory
-BASE_DIR="$1"
-
 # Using fd and fzf to get the users selected file
-FILEPATH=$(fd --color always --base-directory "$BASE_DIR" | sd '\./' '' | sk --ansi)
-
-# Check the exit code from fzf is zero
-[ $? -ne 0 ] && exit
-
-open "${FILEPATH}" "${BASE_DIR}"
+FILEPATH=$(fd -c always --base-directory "$HOME" -pg "$HOME/{code,saffron}/**" | sd '\./' '' | sk --ansi) || exit
+open "${FILEPATH}" "$HOME"

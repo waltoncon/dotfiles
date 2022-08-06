@@ -15,6 +15,7 @@ nix-env -iA \
     nixpkgs.fd \
     nixpkgs.ffmpeg \
     nixpkgs.fzf \
+    nixpkgs.gh \
     nixpkgs.git \
     nixpkgs.gnome.gnome-keyring \
     nixpkgs.imagemagick \

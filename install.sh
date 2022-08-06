@@ -44,7 +44,6 @@ stow npm
 stow shell
 stow starship
 stow subversion
-stow wget
 stow zsh
 
 # Source the shell files while installing
@@ -55,9 +54,7 @@ source $DIR/shell/.config/shell/func
 
 # Create required files and folders
 [ ! -e "${FNM_DIR}" ] && mkdir -p "${FNM_DIR}"
-[ ! -e "$(dirname $WGETRC)" ] && mkdir -p "$(dirname $WGETRC)"
 [ ! -e "${ZSH_STATE}" ] && mkdir -p "${ZSH_STATE}"
-[ ! -e "${WGETRC}" ] && touch "${WGETRC}"
 
 # Install FNM
 if [[ ! -e ${XDG_DATA_HOME}/fnm/fnm ]]; then

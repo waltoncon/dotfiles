@@ -16,3 +16,4 @@ alias svn="svn --config-dir \"${XDG_CONFIG_HOME}/subversion\""
 alias yarn="yarn --use-yarnrc \"${XDG_CONFIG_HOME}/yarn/config\""
 alias s="find-and-open $HOME/saffron"       # Open a Saffron file in vscode or explorer.exe
 alias c='cd "$(find-dir $HOME/saffron)"'    # Change directories to the selected folder
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'

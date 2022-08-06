@@ -1,16 +1,21 @@
 format = """
-$directory\
+$directory \
+$character
+"""
+right_format = """
+$status\
+$docker_context\
 $git_branch\
 $git_status\
 $nodejs\
 $rust\
-$docker_context\
+$deno
 """
-
+continuation_prompt = "[∙](white) "
 add_newline = false
 
 [directory]
-format = "$path  "
+format = "$path"
 truncation_length = 3
 truncation_symbol = "…/"
 truncate_to_repo = false
@@ -31,21 +36,35 @@ truncate_to_repo = false
 "~/.config/" = " "
 "~/.config" = ""
 
+[status]
+format = '[  $status]($style)'
+disabled = false
+
 [docker_context]
-symbol = " "
-format = '$symbol $context $path'
+format = '  Docker $context'
 
 [git_branch]
-symbol = ""
-format = '$symbol $branch'
+format = '   $branch'
 
 [git_status]
-format = '$all_status$ahead_behind  '
+format = ' $all_status$ahead_behind'
+conflicted   =   "="           # This branch has merge conflicts.
+ahead        =   "[](green)"  # The format of ahead
+behind       =   "[](red)"    # The format of behind
+diverged     =   "[](yellow)" # The format of diverged
+up_to_date   =   ""            # The format of up_to_date
+untracked    =   "?"           # The format of untracked
+stashed      =   "$"           # The format of stashed
+modified     =   "!"           # The format of modified
+staged       =   "+"           # The format of staged
+renamed      =   "»"           # The format of renamed
+deleted      =   "X"           # The format of deleted
 
 [nodejs]
-symbol = ""
-format = '$symbol ($version)  '
+format = '  Node ($version)'
 
 [rust]
-symbol = ""
-format = '$symbol ($version)  '
+format = '  Rust ($version)'
+
+[deno]
+format = '  Deno ($version)'

@@ -9,7 +9,8 @@
         "subversion",
         "wget",
         "starship",
-        "fd"
+        "fd",
+        "node",
     ],
     "files.associations": {
         "**/npm/.config/npm/npmrc": "ini",

@@ -87,10 +87,14 @@ if [[ "$CURRENT_SHELL" != "$(command -v zsh)" ]]; then
 fi
 
 # Disable sudo message
-[ -e "/etc/bash.bashrc" ] && sudo sed -i '/sudo hint/,/^fi/d' /etc/bash.bashrc
+if grep -q "sudo hint" /etc/bash.bashrc; then
+    [ -e "/etc/bash.bashrc" ] && sudo sed -i '/sudo hint/,/^fi/d' /etc/bash.bashrc
+fi
 
 # Disable MOTD
-[ -e "/etc/default/motd-news" ] && sudo sed -i 's/ENABLED=1/ENABLED=0/' /etc/default/motd-news
+if grep -q "ENABLED=1" /etc/default/motd-news; then
+    [ -e "/etc/default/motd-news" ] && sudo sed -i 's/ENABLED=1/ENABLED=0/' /etc/default/motd-news
+fi
 
 # Setup WSL drive mounting
 if [[ "$(< /proc/sys/kernel/osrelease)" == *"microsoft"* ]]; then 

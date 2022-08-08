@@ -11,6 +11,7 @@ fi
 # Install packages with Nix
 nix-env -iA \
     nixpkgs.bat \
+    nixpkgs.delta \
     nixpkgs.deno \
     nixpkgs.fd \
     nixpkgs.ffmpeg \
@@ -18,10 +19,12 @@ nix-env -iA \
     nixpkgs.gh \
     nixpkgs.git \
     nixpkgs.gnome.gnome-keyring \
+    nixpkgs.grex \
     nixpkgs.imagemagick \
     nixpkgs.jq \
     nixpkgs.mediainfo \
     nixpkgs.pandoc \
+    nixpkgs.procs \
     nixpkgs.ripgrep \
     nixpkgs.sd \
     nixpkgs.skim \
@@ -30,7 +33,9 @@ nix-env -iA \
     nixpkgs.stow \
     nixpkgs.subversion \
     nixpkgs.tealdeer \
+    nixpkgs.tokei \
     nixpkgs.unzip \
+    nixpkgs.exa \
     nixpkgs.yarn \
     nixpkgs.zsh
 

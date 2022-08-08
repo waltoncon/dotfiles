@@ -1,16 +1,16 @@
 {
     "conventionalCommits.scopes": [
-        "install",
-        "shell",
+        "fd",
         "git",
+        "install",
+        "node",
         "npm",
         "nvm",
-        "zsh",
+        "shell",
+        "starship",
         "subversion",
         "wget",
-        "starship",
-        "fd",
-        "node",
+        "zsh",
     ],
     "files.associations": {
         "**/npm/.config/npm/npmrc": "ini",

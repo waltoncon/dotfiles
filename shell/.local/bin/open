@@ -51,3 +51,5 @@ case "$FILEPATH" in
     # explorer.exe will open the file based on Windows' default programs
     *)                 explorer.exe "$(wslpath -w $FILEPATH)";;
 esac
+
+exit 0

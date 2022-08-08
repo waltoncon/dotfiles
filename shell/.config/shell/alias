@@ -20,15 +20,15 @@ alias df='df -h'
 # -F (classify)         append indicator (one of */=>@|) to entries
 # -h (human-readable)   print sizes like 1K 234M 2G etc.
 # -l                    use a long listing format
-alias ls='ls -lAhF'
+alias ls='exa -alF'
 
 # ls sorted by time
 # -t                    sort by modification time, newest first
-alias lt='ls -t'
+alias lt='exa -alFrs modified'
 
 # ls sorted by file size
 # -S                    sort by file size, largest first
-alias lz='ls -S'
+alias lz='exa -alFrs size'
 
 # shorter ls
 alias l="ls"

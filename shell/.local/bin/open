@@ -21,6 +21,10 @@ else
     exit 1
 fi
 
+# Add this file to recently opened list
+PREPEND=$(echo ${FILEPATH} | sed 's/\//\\\//g')
+sed -i "0,/^/s//$PREPEND\n/" "$OPEN_CACHE_FILE"
+
 case "$FILEPATH" in
     *.cjs)             code "$FILEPATH";;
     *.code-workspace)  code "$FILEPATH";;

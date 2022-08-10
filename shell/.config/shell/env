@@ -31,3 +31,6 @@ export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/config.toml"
 export STARSHIP_CACHE="${XDG_CACHE_HOME}/starship"
 # Zsh
 export ZSH_STATE="$XDG_STATE_HOME/zsh"
+
+# Scripts
+export OPEN_CACHE_FILE="$XDG_CACHE_HOME/open-history"

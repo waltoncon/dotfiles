@@ -38,4 +38,7 @@ bindkey "^[[F" end-of-line
 autoload -U select-word-style
 select-word-style bash
 
+# Disable the ZSH builtin which re-runs previous command
+disable r
+
 eval "$(starship init zsh)"

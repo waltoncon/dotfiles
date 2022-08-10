@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+# Open a recently opened file
+# Usage: open-recent
+
+case $1 in
+    ''|*[!0-9]*|0)
+        # Using fd and fzf to get the users selected file
+        FILEPATH=$(cat "$OPEN_CACHE_FILE" | sd "$HOME/" '' | uniq | sk --ansi) || exit
+    ;;
+    *)
+        # Open a file by number
+        FILEPATH=$(cat "$OPEN_CACHE_FILE" | uniq | sed "$1q;d" | sd "$HOME/" '')
+    ;;
+esac
+
+open "${FILEPATH}" "$HOME"

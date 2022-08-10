@@ -53,7 +53,7 @@ case "$FILEPATH" in
     *.yaml)            code "$FILEPATH";;
     *.yml)             code "$FILEPATH";;
     # explorer.exe will open the file based on Windows' default programs
-    *)                 explorer.exe "$(wslpath -w $FILEPATH)";;
+    *)                 explorer.exe "$(wslpath -w "$FILEPATH")";;
 esac
 
 exit 0

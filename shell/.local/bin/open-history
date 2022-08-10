@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+# View history of opened files
+# Usage: open-history
+
+cat "$OPEN_CACHE_FILE" | uniq | nl

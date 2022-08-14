@@ -1,10 +1,6 @@
 #!/usr/bin/bash
 
 # Open a file
-# Usage: find-and-open <base-directory>
-# Args:
-#    base-directory    The dir to start searching from. Avoid using $HOME as it contains a lot of files you likely don't want
-
-# Using fd and fzf to get the users selected file
-FILEPATH=$(fd -c always --base-directory "$HOME" -pg "$HOME/{code,saffron}/**" | sd '\./' '' | sk --ansi) || exit
-open "${FILEPATH}" "$HOME"
+fd . --color always --absolute-path $(list-project-targets) \
+| sk --ansi \
+| open

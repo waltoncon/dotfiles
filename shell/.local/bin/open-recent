@@ -5,13 +5,11 @@
 
 case $1 in
     ''|*[!0-9]*|0)
-        # Using fd and fzf to get the users selected file
-        FILEPATH=$(cat "$OPEN_CACHE_FILE" | sd "$HOME/" '' | uniq | sk --ansi) || exit
+        # Select from cache file
+        open-history | sk --ansi --no-sort --delimiter '\t' | awk '{print $2}' | open
     ;;
     *)
         # Open a file by number
-        FILEPATH=$(cat "$OPEN_CACHE_FILE" | uniq | sed "$1q;d" | sd "$HOME/" '')
+        open-history | sed "$1q;d" | awk '{print $2}' | open
     ;;
 esac
-
-open "${FILEPATH}" "$HOME"

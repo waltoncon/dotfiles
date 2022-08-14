@@ -5,12 +5,14 @@
 # Args:
 #    base-directory    The dir to start searching from. Avoid using $HOME as it contains a lot of files you likely don't want
 
-FILEPATH=$1
-BASEDIR=$2
 
-if [[ -n "$BASEDIR" ]]; then
-    FILEPATH=$(realpath "$BASEDIR/${FILEPATH}")
+FILEPATH="${1}"
+
+if [[ -z $FILEPATH ]]; then
+    read FILEPATH < "${1:-/dev/stdin}"
 fi
+
+[[ -z "$FILEPATH" ]] && exit
 
 if [[ -e "$FILEPATH" ]]; then
     BLUE='\033[0;34m'
@@ -22,8 +24,7 @@ else
 fi
 
 # Add this file to recently opened list
-PREPEND=$(echo ${FILEPATH} | sed 's/\//\\\//g')
-sed -i "0,/^/s//$PREPEND\n/" "$OPEN_CACHE_FILE"
+echo ${FILEPATH} >> "$OPEN_CACHE_FILE"
 
 case "$FILEPATH" in
     *.cjs)             code "$FILEPATH";;

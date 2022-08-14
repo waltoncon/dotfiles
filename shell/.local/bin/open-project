@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+fd . --absolute-path --type d --maxdepth 1 $(list-project-targets) \
+| sk \
+| xargs -i code "{}" \
+|| exit

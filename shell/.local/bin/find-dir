@@ -1,10 +1,5 @@
 #!/usr/bin/bash
 
 # Get an absolute path to directory
-# Usage: finddir <base-directory>
-# Args:
-#    base-directory    The dir to start searching from. Avoid using $HOME as it contains a lot of files you likely don't want
-
-# Using fd and fzf to get the users selected file
-FILEPATH=$(fd -c always --base-directory "$HOME" -pg "$HOME/{code,saffron}/**" --type d | sd '\./' '' | sk --ansi) ||  exit
-realpath "$HOME/${FILEPATH}"
+fd . --color always --absolute-path --type d $(list-project-targets) \
+| sk --ansi

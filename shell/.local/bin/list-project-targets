@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+tr ':' '\n' <<< $CW_PROJECT_DIRS \
+| xargs -i echo -e {}

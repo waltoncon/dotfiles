@@ -59,3 +59,6 @@ alias r="open-recent"
 
 # Open the most recently opened file in the relevant program
 alias rr="open-recent 1"
+
+# Open a project in vscode
+alias p='open-project'

@@ -1,6 +1,9 @@
 #!/usr/bin/bash
 
 fd . --absolute-path --type d --maxdepth 1 $(list-project-targets) \
+| xargs -i sh -c 'echo "\"$(basename {})\" \"{}\""' \
+| column -ts'" "' \
 | sk \
+| awk '{print $2}' \
 | xargs -i code "{}" \
 || exit

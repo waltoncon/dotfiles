@@ -15,6 +15,8 @@
     "files.associations": {
         "**/npm/.config/npm/npmrc": "ini",
         "**/shell/.config/shell/alias": "shellscript",
+        "**/shell/.config/shell/env-local-example": "shellscript",
+        "**/shell/.config/shell/env-local": "shellscript",
         "**/shell/.config/shell/env": "shellscript",
         "**/shell/.config/shell/func": "shellscript",
         "**/shell/.config/shell/init": "shellscript",

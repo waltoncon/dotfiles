@@ -1,0 +1,5 @@
+# The URL for SVN repos
+export SVN_URL=""
+
+# Any extra project directories that shouldn't be included in the repo
+export CW_PROJECT_DIRS=""

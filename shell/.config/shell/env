@@ -34,4 +34,4 @@ export ZSH_STATE="$XDG_STATE_HOME/zsh"
 
 # Scripts
 export OPEN_CACHE_FILE="$XDG_CACHE_HOME/open-history"
-export CW_PROJECT_DIRS="$HOME/code:$HOME/saffron:$HOME/saffron/default_container/javascript/clients/saffron/html/branches"
+export CW_PROJECT_DIRS="$HOME/code"

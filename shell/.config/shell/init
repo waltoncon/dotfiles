@@ -4,3 +4,8 @@ source "${DIR}/path"
 source "${DIR}/alias"
 source "${DIR}/func"
 source "${DIR}/lang"
+
+if [[ -e "${DIR}/env-local" ]]; then
+    source "${DIR}/env-local"
+    export LOCAL_ENV_EXPORTED=1
+fi

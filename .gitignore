@@ -1,2 +1,3 @@
 subversion/.config/subversion/auth/
 subversion/.config/subversion/README.txt
+shell/.config/shell/env-local

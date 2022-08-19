@@ -14,6 +14,11 @@ fi
 
 [[ -z "$FILEPATH" ]] && exit
 
+if [[ ! -e "$FILEPATH" ]]; then
+    checkout-svn-by-path "${FILEPATH}"
+    exit 0
+fi
+
 if [[ -e "$FILEPATH" ]]; then
     BLUE='\033[0;34m'
     NC='\033[0m' # No Color

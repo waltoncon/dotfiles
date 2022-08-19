@@ -1,0 +1,99 @@
+#!/usr/bin/env zx
+
+$.shell = '/usr/bin/bash'
+$.quote = str => str
+$.verbose = false
+
+const {
+    input,
+} = defineArguments({
+    input: {
+        arg: 1,
+        required: true,
+    },
+});
+
+if (fs.existsSync(input)) {
+    echo(`${input} already exists`);
+    process.exit(1)
+}
+
+const homelessPath = input.replace(`${process.env.SVN_REPO_ROOT_DIR}/`, '');
+const probablyFile = !input.endsWith('/');
+const pathSegments = homelessPath.split('/');
+const projectlessPath = pathSegments.slice(1).join('/');
+const username = process.env.SVN_USER || await question('Enter SVN username: ')
+const password = process.env.SVN_PASS || await question('Enter SVN password: ')
+const pathProgression = pathSegments.map((seg, index) => pathSegments.slice(0, index + 1).join('/'));
+const [projectCode] = pathSegments;
+const svnProjectRemote = process.env.SVN_REPO_URL.replace('{}', projectCode);
+const svnRemotePath = `${svnProjectRemote}/${projectlessPath}`
+const supportedDepths = ['empty', 'exclude', 'files', 'immediates', 'infinity']
+
+const authFlags = [
+    `--username="${username}"`,
+    `--password="${password}"`,
+]
+
+let response
+
+try {
+    response = await $`svn info ${authFlags} "${svnRemotePath}"`
+} catch (err) {
+    console.log(`${chalk.blue(`${svnRemotePath}`)} could not be found`);
+    process.exit(1)
+}
+
+const targetKind = response.stdout.split('\n').find(line => line.startsWith('Node Kind')).split(' ').at(-1)
+
+let depth = 'empty';
+
+echo(`Checking out ${input}`)
+
+// TODO: find out how to run this zx script from a bash script 
+//       without the bash script exiting when zx gets to a prompt
+
+// if (targetKind === 'directory') {
+//     const r = await inquirer.prompt({
+//         type: 'list',
+//         name: 'depth',
+//         message: 'Depth?',
+//         choices: supportedDepths
+//     })
+//     depth = r.depth
+// }
+
+// console.log({
+//     response,
+//     depth,
+//     targetKind,
+//     homelessPath,
+//     projectlessPath,
+//     probablyFile,
+//     pathSegments,
+//     pathProgression,
+//     projectCode,
+//     svnProjectRemote,
+//     svnRemotePath,
+// })
+
+// process.exit();
+
+for (const [index, part] of pathProgression.entries()) {
+    const newPath = `${process.env.SVN_REPO_ROOT_DIR}/${part}`;
+
+    if (fs.existsSync(newPath)) {
+        continue;
+    }
+
+    if (index === 0) {
+        // If the first part doesn't exist, that means the project hasn't been checked out yet.
+        const projectUrl = process.env.SVN_REPO_URL.replace('{}', part);
+        await $`svn checkout --depth=${depth} ${authFlags} "${projectUrl}" "${newPath}"`
+        continue;
+    }
+
+    await $`svn up --set-depth=${depth} ${authFlags} "${newPath}"`;
+}
+
+$`open "${input}"`

@@ -95,5 +95,3 @@ for (const [index, part] of pathProgression.entries()) {
 
     await $`svn up --set-depth=${depth} ${authFlags} "${newPath}"`;
 }
-
-$`open "${input}"`

@@ -16,7 +16,6 @@ fi
 
 if [[ ! -e "$FILEPATH" ]]; then
     checkout-svn-by-path "${FILEPATH}"
-    exit 0
 fi
 
 if [[ -e "$FILEPATH" ]]; then

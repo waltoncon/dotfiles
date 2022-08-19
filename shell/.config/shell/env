@@ -35,3 +35,5 @@ export ZSH_STATE="$XDG_STATE_HOME/zsh"
 # Scripts
 export OPEN_CACHE_FILE="$XDG_CACHE_HOME/open-history"
 export CW_PROJECT_DIRS="$HOME/code"
+export SVN_REPO_LIST_DIR="${XDG_CACHE_HOME}/svn-repo-lists"
+export SVN_REPO_URL="${SVN_URL}/{}/repos"

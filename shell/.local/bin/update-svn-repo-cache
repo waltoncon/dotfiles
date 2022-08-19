@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Create the cache dir in case is doesn't exist
+[[ ! -e ${SVN_REPO_LIST_DIR} ]] && mkdir -p "${SVN_REPO_LIST_DIR}"
+
+# Make sure the cache dir is a directory
+[[ ! -d ${SVN_REPO_LIST_DIR} ]] && echo "${SVN_REPO_LIST_DIR} must be a directory" && exit 1
+
+read -p "Enter SVN username: " SVN_USERNAME
+read -sp "Enter SVN password: " SVN_PASSWORD
+echo
+
+function create_cache_file(){
+    local PROJECT=$1
+
+    echo "- Caching project ${PROJECT}"
+
+    local OUTPUT_FILE="${SVN_REPO_LIST_DIR}/${PROJECT}.txt"
+
+    local REMOTE_LS=$(
+        echo $SVN_REPO_URL \
+        | sed "s:{}:${PROJECT}:" \
+        | xargs -i svn list --username "${SVN_USERNAME}" --password "${SVN_PASSWORD}" -R {} \
+        | sed "s:^:${SVN_REPO_ROOT_DIR}/${PROJECT}/:"
+    )
+
+    # local REMOTE_LS=$(cat $OUTPUT_FILE);
+
+    [[ -e $OUTPUT_FILE ]] && rm "$OUTPUT_FILE"
+
+    while IFS= read -r line; do
+        [[ ! -e "$line" ]] && echo "$line" >> $OUTPUT_FILE
+    done < <(printf '%s\n' "$REMOTE_LS")
+}
+
+if [[ -z "$1" ]]; then
+    REPOS=$(tr ':' '\n' <<< $SVN_REPOS)
+    while IFS= read -r line; do
+        create_cache_file "$line"
+    done <<< "$REPOS"
+else
+    create_cache_file "$1"
+fi

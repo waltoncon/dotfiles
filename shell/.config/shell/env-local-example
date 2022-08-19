@@ -1,5 +1,17 @@
 # The URL for SVN repos
 export SVN_URL=""
 
+# Parent folder of SVN repos
+export SVN_REPO_ROOT_DIR=""
+
+# SVN username
+export SVN_USER=""
+
+# SVN password
+export SVN_PASS=""
+
+# Colon separated string of SVN repo names
+export SVN_REPOS=""
+
 # Any extra project directories that shouldn't be included in the repo
 export CW_PROJECT_DIRS=""

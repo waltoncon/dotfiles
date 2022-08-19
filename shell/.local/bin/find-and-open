@@ -2,5 +2,6 @@
 
 # Open a file
 fd . --color always --absolute-path $(list-project-targets) \
+| cat - ${SVN_REPO_LIST_DIR}/* \
 | sk --ansi \
 | open

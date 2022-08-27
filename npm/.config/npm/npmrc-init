@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# npmrc doesn't support env vars and can contain sensitive data
+# so should be initialised by this and not committed
+
+echo "cache=${XDG_CACHE_HOME}/npm" >> ${XDG_CONFIG_HOME}/npm/npmrc
+echo "init-module=${XDG_CONFIG_HOME}/npm/config/npm-init.js" >> ${XDG_CONFIG_HOME}/npm/npmrc
+echo "store-dir=${XDG_DATA_HOME}/pnpm-store" >> ${XDG_CONFIG_HOME}/npm/npmrc

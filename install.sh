@@ -111,4 +111,9 @@ if [[ "$(< /proc/sys/kernel/osrelease)" == *"microsoft"* ]]; then
     fi
 fi
 
+# Initialise npmrc
+if [[ ! -e "${XDG_CONFIG_HOME}/npm/npmrc" ]]; then
+    bash $DIR/npm/.config/npm/npmrc-init
+fi
+
 printf "\n\n\nRelaunch your session to continue\n\n\n"

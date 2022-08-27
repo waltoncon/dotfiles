@@ -1,3 +1,4 @@
 subversion/.config/subversion/auth/
 subversion/.config/subversion/README.txt
 shell/.config/shell/env-local
+npm/.config/npm/npmrc

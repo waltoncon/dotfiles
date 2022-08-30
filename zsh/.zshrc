@@ -25,6 +25,9 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 # Makes autocompletion work on aliases
 setopt complete_aliases
 
+setopt no_bare_glob_qual
+setopt no_bang_hist
+
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;3D" backward-word

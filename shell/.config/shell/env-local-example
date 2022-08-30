@@ -1,6 +1,9 @@
 # The URL for SVN repos
 export SVN_URL=""
 
+# Format of SVN repos. {} is replaced with the project name
+export SVN_REPO_URL="${SVN_URL}/{}/repos"
+
 # Parent folder of SVN repos
 export SVN_REPO_ROOT_DIR=""
 

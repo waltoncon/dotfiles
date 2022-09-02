@@ -11,6 +11,7 @@ fi
 # Install packages with Nix
 nix-env -iA \
     nixpkgs.bat \
+    nixpkgs.curl \
     nixpkgs.delta \
     nixpkgs.deno \
     nixpkgs.exa \
@@ -37,6 +38,7 @@ nix-env -iA \
     nixpkgs.tealdeer \
     nixpkgs.tokei \
     nixpkgs.unzip \
+    nixpkgs.wget \
     nixpkgs.yarn \
     nixpkgs.zsh
 

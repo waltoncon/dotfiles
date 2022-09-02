@@ -13,6 +13,7 @@ nix-env -iA \
     nixpkgs.bat \
     nixpkgs.delta \
     nixpkgs.deno \
+    nixpkgs.exa \
     nixpkgs.fd \
     nixpkgs.ffmpeg \
     nixpkgs.fzf \
@@ -36,7 +37,6 @@ nix-env -iA \
     nixpkgs.tealdeer \
     nixpkgs.tokei \
     nixpkgs.unzip \
-    nixpkgs.exa \
     nixpkgs.yarn \
     nixpkgs.zsh
 

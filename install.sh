@@ -21,6 +21,7 @@ nix-env -iA \
     nixpkgs.gnome.gnome-keyring \
     nixpkgs.grex \
     nixpkgs.imagemagick \
+    nixpkgs.jdk \
     nixpkgs.jq \
     nixpkgs.mediainfo \
     nixpkgs.pandoc \

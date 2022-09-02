@@ -119,4 +119,10 @@ if [[ ! -e "${XDG_CONFIG_HOME}/npm/npmrc" ]]; then
     bash $DIR/npm/.config/npm/npmrc-init
 fi
 
+# Install Rust
+if ! command rustc --version 2>/dev/null; then 
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+    export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
+fi
+
 printf "\n\n\nRelaunch your session to continue\n\n\n"

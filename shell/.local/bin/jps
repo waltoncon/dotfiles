@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Open a directory in Jetbrains PhpStorm
+
+WINPATH=$(wslpath -w ${1:-$(pwd)} | sed 's/wsl.localhost/wsl$/')
+PHPSTORM_WSL=$(which PhpStorm.cmd)
+PHPSTORM=$(wslpath -w "$PHPSTORM_WSL")
+
+powershell.exe -Command "$PHPSTORM $WINPATH"

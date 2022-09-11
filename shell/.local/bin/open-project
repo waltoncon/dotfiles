@@ -1,10 +1,12 @@
 #!/usr/bin/bash
 
+CMD=code
+
 fd . --absolute-path --type d --maxdepth 1 $(list-project-targets) \
 | xargs -i sh -c 'echo "\"$(basename {})\" \"{}\""' \
 | column -ts'" "' \
 | sort \
 | sk \
 | awk '{print $2}' \
-| xargs -i code "{}" \
+| xargs -i "$CMD" "{}" \
 || exit

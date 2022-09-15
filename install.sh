@@ -25,6 +25,7 @@ nix-env -iA \
     nixpkgs.imagemagick \
     nixpkgs.jdk \
     nixpkgs.jq \
+    nixpkgs.jql \
     nixpkgs.mediainfo \
     nixpkgs.pandoc \
     nixpkgs.procs \

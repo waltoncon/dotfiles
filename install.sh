@@ -37,6 +37,7 @@ nix-env -iA \
     nixpkgs.subversion \
     nixpkgs.tealdeer \
     nixpkgs.tokei \
+    nixpkgs.traceroute \
     nixpkgs.unzip \
     nixpkgs.wget \
     nixpkgs.yarn \

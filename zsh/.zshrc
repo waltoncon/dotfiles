@@ -27,6 +27,11 @@ setopt complete_aliases
 
 setopt no_bare_glob_qual
 setopt no_bang_hist
+setopt interactive_comments
+setopt no_glob
+setopt BASH_AUTO_LIST           # Only show autocomplete list on second tab
+
+# ksh_glob extended_glob no_null_glob
 
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;5C" forward-word
@@ -45,3 +50,10 @@ select-word-style bash
 disable r
 
 eval "$(starship init zsh)"
+
+# PHP-UP
+export PATH=/home/waltonc/.phpup/bin:$PATH
+eval "$(phpup init --auto --recursive)"
+fpath=(/home/waltonc/.phpup/completions/zsh $fpath)
+# To use completion, run `compinit` after adding $fpath
+# compinit

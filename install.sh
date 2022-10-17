@@ -137,4 +137,8 @@ if ! command rustc --version 2>/dev/null; then
     export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 fi
 
+# Install Rust packages
+cargo install \
+    phpup
+
 printf "\n\n\nRelaunch your session to continue\n\n\n"

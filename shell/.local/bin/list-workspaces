@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+DIR="${WORKSPACE_DIR:-$HOME/workspaces}"
+EXT="code-workspace"
+FILES=$(fd --extension '$EXT' --base-directory "$DIR" .)
+
+for LINE in $(ls -1 "$DIR"); do
+    NAME=$(echo $LINE | sed "s/.$EXT//")
+    echo "\"$NAME (Workspace)\" \"${DIR}/${LINE}\""
+done

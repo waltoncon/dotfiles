@@ -1,5 +1,7 @@
 # To-do
 
+1. Add way to mark items in `find-and-open` as favourite that cam be accessed in another command
+
 ## Research
 
 **Command line tool lists**

@@ -11,6 +11,7 @@
         "subversion",
         "wget",
         "zsh",
+        "yarn"
     ],
     "files.associations": {
         "**/npm/.config/npm/npmrc": "ini",

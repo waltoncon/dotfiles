@@ -65,6 +65,7 @@ stow npm
 stow shell
 stow starship
 stow subversion
+stow yarn
 stow zsh
 
 # Source the shell files while installing

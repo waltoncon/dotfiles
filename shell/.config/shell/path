@@ -6,3 +6,6 @@
 
 # Add FNM directory to path
 export PATH="$FNM_DIR:$PATH"
+
+# Add PNPM home directory to path
+export PATH="$PNPM_HOME:$PATH"

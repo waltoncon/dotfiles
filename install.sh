@@ -20,6 +20,7 @@ nix-env -iA \
     nixpkgs.fzf \
     nixpkgs.gh \
     nixpkgs.git \
+    nixpkgs.git-lfs \
     nixpkgs.gnome.gnome-keyring \
     nixpkgs.grex \
     nixpkgs.imagemagick \
@@ -27,6 +28,7 @@ nix-env -iA \
     nixpkgs.jq \
     nixpkgs.jql \
     nixpkgs.mediainfo \
+    nixpkgs.netlify-cli \
     nixpkgs.pandoc \
     nixpkgs.procs \
     nixpkgs.ripgrep \

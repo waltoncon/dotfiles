@@ -62,3 +62,6 @@ alias rr="open-recent 1"
 
 # Open a project in vscode
 alias p='open-project'
+
+# Laravel Sail
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'

@@ -37,7 +37,6 @@ nix-env -iA \
     nixpkgs.sqlite \
     nixpkgs.starship \
     nixpkgs.stow \
-    nixpkgs.subversion \
     nixpkgs.tealdeer \
     nixpkgs.tokei \
     nixpkgs.traceroute \
@@ -50,6 +49,7 @@ sudo apt update
 
 sudo apt install -y \
     build-essential \
+    subversion \
     libayatana-appindicator3-dev \
     libgtk-3-dev \
     librsvg2-dev \

@@ -1,11 +1,11 @@
 # Open files in Windows File Explorer from inside WSL
 function e() {
-    explorer.exe "$(wslpath -w $1)"
+    explorer.exe "$(wslpath -w ${1:-.})"
 }
 
 # Start an http server in the specified directory
 function h() {
-    http-server -o -c5 --no-dotfiles --brotli --utc --log-ip $1
+    http-server -o -c5 --no-dotfiles --brotli --utc --log-ip "${1:-.}"
 }
 
 function check_and_source() {

@@ -5,4 +5,5 @@ grunt
 @waltoncon/zx
 nuxi
 firebase-tools
+@sanity/cli
 npm-check

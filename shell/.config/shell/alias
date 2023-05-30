@@ -40,7 +40,7 @@ alias j='jobs -l'
 alias grep="grep --color"
 
 # Change the config directory for SVN
-alias svn="svn --config-dir \"${XDG_CONFIG_HOME}/subversion\""
+# alias svn="svn --config-dir \"${XDG_CONFIG_HOME}/subversion\""
 
 # Change the RC file location for Yarn
 alias yarn="yarn --use-yarnrc \"${XDG_CONFIG_HOME}/yarn/config\""

@@ -23,3 +23,11 @@ function fnm_install_globals() {
     echo "Installing for Node $(node -v)"
     xargs -a "${XDG_CONFIG_HOME}/fnm/default-packages" npm install -g
 }
+
+function cop() {
+    local PROJECT=$1
+    local URL=$(echo $SVN_REPO_URL | sed "s:{}:${PROJECT}:")
+    local OUT="${HOME}/saffron/${PROJECT}"
+    svn checkout "${URL}" "${OUT}" --depth immediates --quiet
+    echo "${OUT}"
+}

@@ -42,6 +42,7 @@ nix-env -iA \
     nixpkgs.unzip \
     nixpkgs.wget \
     nixpkgs.yarn \
+    nixpkgs.yt-dlp \
     nixpkgs.zsh
 
 sudo apt update
